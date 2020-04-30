@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  naiveproxy-caddy:
+      image: naiveproxy-caddy
+      build: .
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - ./www:/var/www:ro
+        - ./config.json:/naiveproxy/config.json:ro
+        - ./Caddyfile:/etc/Caddyfile:ro
+        - ./ssl:/root/.caddy/acme/acme-v02.api.letsencrypt.org/sites
+

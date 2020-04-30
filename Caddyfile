@@ -1,0 +1,10 @@
+<your_domain>
+root /var/www/html
+tls <your_email>
+forwardproxy {
+  basicauth <user> <pass>
+  hide_ip
+  hide_via
+  probe_resistance secret.localhost
+  upstream http://localhost:8080
+}
